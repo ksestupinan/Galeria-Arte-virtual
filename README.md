@@ -1334,4 +1334,236 @@ Código|Descripción|Cuerpo
 
 
 
+### Recurso Cliente
+El objeto Cliente tiene 2 representaciones JSON:	
+
+#### Representación Minimum
+```javascript
+{
+    id'' /*Tipo Long*/,
+    nombre: '' /*Tipo String*/,
+    favorito: '' /*Tipo Collectio<Obra>*/,
+    tipoTarjeta: '' /*Tipo String*/,
+    numTarjeta: '' /*Tipo Integer*/,
+}
+```
+
+#### Representación Detail
+```javascript
+{
+    // todo lo de la representación Minimum más los objetos Minimum con relación simple.
+    Comentarios: {
+    id: '' /*Tipo Long*/,
+    contenido: '' /*Tipo String*/    }
+}
+```
+
+
+
+#### GET /Usuario
+
+Retorna una colección de objetos Usuario en representación Detail.
+Cada Usuario en la colección tiene embebidos los siguientes objetos: GaleriaArte.
+
+#### Parámetros
+
+#### N/A
+
+#### Respuesta
+
+Código|Descripción|Cuerpo
+:--|:--|:--
+200|OK|Colección de [representaciones Detail](#recurso-Usuario)
+412|precondition failed, no se cumple la regla de negocio establecida|Mensaje de error
+405|method not allowed, no existe permiso para el recurso|Mensaje de error
+500|Error interno|Mensaje de error
+
+#### GET /Usuario/{id}
+
+Retorna una colección de objetos Usuario en representación Detail.
+Cada Usuario en la colección tiene los siguientes objetos: Comentarios.
+
+#### Parámetros
+
+Nombre|Favoritos|tipoTarjeta|numTarjeta|Esquema
+:--|:--|:--|:--|:--
+id|Path|ID del objeto Usuario a consultar|Sí|Long
+
+#### Respuesta
+
+Código|Descripción|Cuerpo
+:--|:--|:--
+200|OK|Objeto Usuario en [representaciones Detail](#recurso-Usuario)
+404|No existe un objeto Usuario con el ID solicitado|Mensaje de error
+405|method not allowed, no existe permiso para el recurso|Mensaje de error
+500|Error interno|Mensaje de error
+
+#### POST /Usuario
+
+Es el encargado de crear objetos Usuario.
+
+#### Parámetros
+
+Nombre|Favoritos|TipoTarjeta|NumTarjeta|Esquema
+:--|:--|:--|:--|:--
+body|body|Objeto Usuario que será creado|Sí|[Representación Detail](#recurso-Usuario)
+
+#### Respuesta
+
+Código|Descripción|Cuerpo
+:--|:--|:--
+201|El objeto Usuario ha sido creado|[Representación Detail](#recurso-Usuario)
+412|precondition failed, no se cumple la regla de negocio establecida|Mensaje de error
+405|method not allowed, no existe permiso para el recurso|Mensaje de error
+500|No se pudo crear el objeto Usuario|Mensaje de error
+
+#### PUT /Usuario/{id}
+
+Es el encargado de actualizar objetos Usuario.
+
+#### Parámetros
+
+Nombre|Favoritos|TipoTarjeta|NumTarjeta|Esquema
+:--|:--|:--|:--|:--
+id|Path|ID del objeto Usuario a actualizar|Sí|Long
+body|body|Objeto Usuario nuevo|Sí|[Representación Detail](#recurso-Usuario)
+
+#### Respuesta
+
+Código|Descripción|Cuerpo
+:--|:--|:--
+201|El objeto Usuario actualizado|[Representación Detail](#recurso-Usuario)
+412|business exception, no se cumple con las reglas de negocio|Mensaje de error
+405|method not allowed, no existe permiso para el recurso|Mensaje de error
+500|No se pudo actualizar el objeto USuario|Mensaje de error
+
+#### DELETE /Usuario/{id}
+
+Elimina un objeto Usuario.
+
+#### Parámetros
+
+Nombre|Favoritos|TipoTarjeta|NumTarjeta|Esquema
+:--|:--|:--|:--|:--
+id|Path|ID del objeto Usuario a eliminar|Sí|Long
+
+
+### Recurso Comentario
+El objeto Comentario tiene 2 representaciones JSON:	
+
+#### Representación Minimum
+```javascript
+{
+    id'' /*Tipo Long*/,
+    contenido: '' /*Tipo String*/,
+}
+```
+
+#### Representación Detail
+```javascript
+{
+    // todo lo de la representación Minimum más los objetos Minimum con relación simple.
+    Usuario: {
+    id'' /*Tipo Long*/,
+
+    nombre: '' /*Tipo String*/,
+
+    favorito: '' /*Tipo Collectio<Obra>*/,
+
+    tipoTarjeta: '' /*Tipo String*/,
+
+    numTarjeta: '' /*Tipo Integer*/,    }
+}
+```
+
+
+
+#### GET /Comentario
+
+Retorna una colección de objetos Comentario en representación Detail.
+Cada Comentario en la colección tiene embebidos los siguientes objetos: Usuario.
+
+#### Parámetros
+
+#### N/A
+
+#### Respuesta
+
+Código|Descripción|Cuerpo
+:--|:--|:--
+200|OK|Colección de [representaciones Detail](#recurso-Comentario)
+412|precondition failed, no se cumple la regla de negocio establecida|Mensaje de error
+405|method not allowed, no existe permiso para el recurso|Mensaje de error
+500|Error interno|Mensaje de error
+
+#### GET /Comentario/{id}
+
+Retorna una colección de objetos Comentario en representación Detail.
+Cada Comentario en la colección tiene los siguientes objetos: Comentarios.
+
+#### Parámetros
+
+Id|Contenido|Esquema
+:--|:--|:--|:--|:--
+id|Comentario realizado por el Usuario|String
+
+#### Respuesta
+
+Código|Descripción|Cuerpo
+:--|:--|:--
+200|OK|Objeto Comentario en [representaciones Detail](#recurso-Comentario)
+404|No existe un objeto Comentario con el ID solicitado|Mensaje de error
+405|method not allowed, no existe permiso para el recurso|Mensaje de error
+500|Error interno|Mensaje de error
+
+#### POST /Comentarios
+
+Es el encargado de crear objetos Comentarios.
+
+#### Parámetros
+
+Id|Contenido|Esquema
+:--|:--|:--|:--|:--
+body|Comentario realizado por el Usuario|[Representación Detail](#recurso-Comentario)
+
+#### Respuesta
+
+Código|Descripción|Cuerpo
+:--|:--|:--
+201|El objeto Comentario ha sido creado|[Representación Detail](#recurso-Comentario)
+412|precondition failed, no se cumple la regla de negocio establecida|Mensaje de error
+405|method not allowed, no existe permiso para el recurso|Mensaje de error
+500|No se pudo crear el objeto Comentario|Mensaje de error
+
+#### PUT /Comentario/{id}
+
+Es el encargado de actualizar objetos Comentario.
+
+#### Parámetros
+
+Id|Contenido|Esquema
+:--|:--|:--|:--|:--
+id|Path|ID del objeto Usuario a actualizar|Sí|Long
+body|body|Objeto Usuario nuevo|Sí|[Representación Detail](#recurso-Usuario)
+
+#### Respuesta
+
+Código|Descripción|Cuerpo
+:--|:--|:--
+201|El objeto Comentario actualizado|[Representación Detail](#recurso-Comentario)
+412|business exception, no se cumple con las reglas de negocio|Mensaje de error
+405|method not allowed, no existe permiso para el recurso|Mensaje de error
+500|No se pudo actualizar el objeto Comentario|Mensaje de error
+
+#### DELETE /Comentario/{id}
+
+Elimina un objeto Comentario.
+
+#### Parámetros
+
+Id|Contenido|Esquema
+:--|:--|:--|:--|:--
+id|ID del objeto Comentario a eliminar|Long
+
+
 [Volver arriba](#tabla-de-contenidos)
