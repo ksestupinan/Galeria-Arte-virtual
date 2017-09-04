@@ -21,7 +21,7 @@
     - [POST artistas/{id}/comentario/{idComentario}](#POST-artistas/{id}/comentario/{idComentario})
     - [PUT artistas/{id}/comentario](#PUT-artistas/{id}/comentario)
     - [DELETE artistas/{id}/comentario/{idComentario}](#DELETE-artistas/{id}/comentario/{idComentario}])
-  - [Recurso Obra(#recurso-obra)
+  - [Recurso Obra](#recurso-obra)
     - [GET /obra](#GET-/obra)
     - [GET /obra/{id}](#GET-/obra/{id})
     - [POST /obra](#POST-/obra)
