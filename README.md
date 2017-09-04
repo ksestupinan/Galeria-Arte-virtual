@@ -1,43 +1,42 @@
 # Tabla de contenidos
 -  [Introducción](#introducción)
--  [API](#api-de-la-aplicación-books)
-  - [Recurso Book](#recurso-book)
-    - [GET /books](#GET-/books)
-    - [GET /books/{id}](#GET-/books/{id})
-    - [POST /books](#POST-/books)
-    - [PUT /books/{id}](#PUT-/books/{id})
-    - [DELETE /books/{id}](#DELETE-/books/{id})
-    - [GET books/{booksid}/categories](#GET-books/{booksid}/categories)
-    - [GET books/{booksid}/categories/{categoriesid}](#GET-books/{booksid}/categories/{categoriesid})
-    - [POST books/{booksid}/categories/{categoriesid}](#POST-books/{booksid}/categories/{categoriesid})
-    - [PUT books/{booksid}/categories](#PUT-books/{booksid}/categories)
-    - [DELETE books/{booksid}/categories/{categoriesid}](#DELETE-books/{booksid}/categories/{categoriesid}])
-    - [GET books/{booksid}/authors](#GET-books/{booksid}/authors)
-    - [GET books/{booksid}/authors/{authorsid}](#GET-books/{booksid}/authors/{authorsid})
-    - [POST books/{booksid}/authors/{authorsid}](#POST-books/{booksid}/authors/{authorsid})
-    - [PUT books/{booksid}/authors](#PUT-books/{booksid}/authors)
-    - [DELETE books/{booksid}/authors/{authorsid}](#DELETE-books/{booksid}/authors/{authorsid}])
-    - [GET books/{booksid}/review](#GET-books/{booksid}/review)
-    - [GET books/{booksid}/review/{reviewid}](#GET-books/{booksid}/review/{reviewid})
-    - [POST books/{booksid}/review/{reviewid}](#POST-books/{booksid}/review/{reviewid})
-    - [PUT books/{booksid}/review](#PUT-books/{booksid}/review)
-    - [DELETE books/{booksid}/review/{reviewid}](#DELETE-books/{booksid}/review/{reviewid}])
-  - [Recurso Author](#recurso-author)
-    - [GET /authors](#GET-/authors)
-    - [GET /authors/{id}](#GET-/authors/{id})
-    - [POST /authors](#POST-/authors)
-    - [PUT /authors/{id}](#PUT-/authors/{id})
-    - [DELETE /authors/{id}](#DELETE-/authors/{id})
-    - [GET authors/{authorsid}/prize](#GET-authors/{authorsid}/prize)
-    - [GET authors/{authorsid}/prize/{prizeid}](#GET-authors/{authorsid}/prize/{prizeid})
-    - [POST authors/{authorsid}/prize/{prizeid}](#POST-authors/{authorsid}/prize/{prizeid})
-    - [PUT authors/{authorsid}/prize](#PUT-authors/{authorsid}/prize)
-    - [DELETE authors/{authorsid}/prize/{prizeid}](#DELETE-authors/{authorsid}/prize/{prizeid}])
-    - [GET authors/{authorsid}/books](#GET-authors/{authorsid}/books)
-    - [GET authors/{authorsid}/books/{booksid}](#GET-authors/{authorsid}/books/{booksid})
-    - [POST authors/{authorsid}/books/{booksid}](#POST-authors/{authorsid}/books/{booksid})
-    - [PUT authors/{authorsid}/books](#PUT-authors/{authorsid}/books)
-    - [DELETE authors/{authorsid}/books/{booksid}](#DELETE-authors/{authorsid}/books/{booksid}])
+-  [API](#api-de-la-aplicación-Galería-de-Arte)
+  - [Recurso Artista](#recurso-artista)
+    - [GET /artistas](#GET-/artistas)
+    - [GET /artista/{id}](#GET-/artista/{id})
+    - [POST /artistas](#POST-/artistas)
+    - [PUT /artistas/{id}](#PUT-/artistas/{id})
+    - [DELETE /artistas/{id}](#DELETE-/artistas/{id})
+    - [GET artistas/{id}/obras](#GET-artistas/{id}/obras)
+    - [POST artistas/{id}/obras/{idObras}](#POST-artistas/{id}/obras/{idObras})
+    - [PUT artistas/{id}/obras](#PUT-artistas/{id}/obras)
+    - [DELETE artistas/{id}/obras/{idObras}](#DELETE-artistas/{id}/obras/{idObras}])
+    - [GET artistas/{id}/blog](#GET-artistas/{id}/blog)
+    - [GET artistas/{id}/blog/{idBlog}](#GET-artistas/{id}/blog/{idBlog})
+    - [POST artistas/{id}/blog/{idBlog}](#POST-artistas/{id}/blog/{idBlog})
+    - [PUT artistas/{id}/blog](#PUT-artistas/{id}/blog)
+    - [DELETE artistas/{id}/blog/{idBlog}](#DELETE-artistas/{id}/blog/{idBlog}])
+    - [GET artistas/{id}/comentario](#GET-artistas/{id}/comentario)
+    - [GET artistas/{id}/comentario/{idComentario}](#GET-artistas/{id}/comentario/{idComentario})
+    - [POST artistas/{id}/comentario/{idComentario}](#POST-artistas/{id}/comentario/{idComentario})
+    - [PUT artistas/{id}/comentario](#PUT-artistas/{id}/comentario)
+    - [DELETE artistas/{id}/comentario/{idComentario}](#DELETE-artistas/{id}/comentario/{idComentario}])
+  - [Recurso Obra(#recurso-obra)
+    - [GET /obra](#GET-/obra)
+    - [GET /obra/{id}](#GET-/obra/{id})
+    - [POST /obra](#POST-/obra)
+    - [PUT /obra/{id}](#PUT-/obra/{id})
+    - [DELETE /obra/{id}](#DELETE-/obra/{id})
+    - [GET obra/{idObra}/precio](#GET-obra/{idObra}/precio)
+    - [GET obra/{idObra}/precio/{precioObra}](#GET-obra/{idObra}/precio/{precioObra})
+    - [POST obra/{idObra}/precio/{precioObra}](#POST-obra/{idObra}/precio/{precioObra})
+    - [PUT obra/{idObra}/precio](#PUT-obra/{idObra}/precio)
+    - [DELETE obra/{idObra}/precio/{precioObra}](#DELETE-obra/{idObra}/precio/{precioObra}])
+    - [GET obra/{idObra}/artistas](#GET-obra/{idObra}/artistas)
+    - [GET obra/{idObra}/artistas/{idArtista}](#GET-obra/{idObra}/artistas/{idArtista})
+    - [POST obra/{idObra}/artistas/{idArtista}](#POST-obra/{idObra}/artistas/{idArtista})
+    - [PUT obra/{idObra}/artistas](#PUT-obra/{idObra}/artistas)
+    - [DELETE obra/{idObra}/artistas/{idArtista}](#DELETE-obra/{idObra}/artistas/{idArtista}])
   - [Recurso Editorial](#recurso-editorial)
     - [GET /editorials](#GET-/editorials)
     - [GET /editorials/{id}](#GET-/editorials/{id})
@@ -90,19 +89,18 @@ La respuesta del servidor al solicitar una colección presenta el siguiente form
 [{}, {}, {}, {}, {}, {}]
 ```
 
-## API de la aplicación books_absviews
-### Recurso Book
-El objeto Book tiene 2 representaciones JSON:	
+## API de la aplicación Galeria_de_Arte
+### Recurso Artista
+El objeto Artista tiene 2 representaciones JSON:
 
 #### Representación Minimum
 ```javascript
 {
     id: '' /*Tipo Long*/,
     name: '' /*Tipo String*/,
-    isbn: '' /*Tipo String*/,
-    description: '' /*Tipo String*/,
-    image: '' /*Tipo String*/,
-    publishingdate: '' /*Tipo Date*/
+    hojaVida: '' /*Tipo String*/,
+    trayectoria: '' /*Tipo String*/,
+    
 }
 ```
 
@@ -110,9 +108,13 @@ El objeto Book tiene 2 representaciones JSON:
 ```javascript
 {
     // todo lo de la representación Minimum más los objetos Minimum con relación simple.
-    editorial: {
+    obra: {
     id: '' /*Tipo Long*/,
-    name: '' /*Tipo String*/    }
+    name: '' /*Tipo String*/  
+    tipo: '' /*Tipo String*/  
+    valor: '' /*Tipo Double*/  
+    cantidad: '' /*Tipo Integer*/  
+}
 }
 ```
 
@@ -500,7 +502,7 @@ Código|Descripción|Cuerpo
 
 [Volver arriba](#tabla-de-contenidos)
 ### Recurso Author
-El objeto Author tiene 2 representaciones JSON:	
+El objeto Author tiene 2 representaciones JSON:
 
 #### Representación Minimum
 ```javascript
@@ -801,7 +803,7 @@ Código|Descripción|Cuerpo
 
 [Volver arriba](#tabla-de-contenidos)
 ### Recurso Editorial
-El objeto Editorial tiene 2 representaciones JSON:	
+El objeto Editorial tiene 2 representaciones JSON:
 
 #### Representación Minimum
 ```javascript
@@ -1006,7 +1008,7 @@ Código|Descripción|Cuerpo
 
 [Volver arriba](#tabla-de-contenidos)
 ### Recurso Prize
-El objeto Prize tiene 2 representaciones JSON:	
+El objeto Prize tiene 2 representaciones JSON:
 
 #### Representación Minimum
 ```javascript
@@ -1129,7 +1131,7 @@ Código|Descripción|Cuerpo
 
 [Volver arriba](#tabla-de-contenidos)
 ### Recurso Category
-El objeto Category tiene 2 representaciones JSON:	
+El objeto Category tiene 2 representaciones JSON:
 
 #### Representación Minimum
 ```javascript
